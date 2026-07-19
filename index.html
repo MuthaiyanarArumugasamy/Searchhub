@@ -1,262 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>SearchHub - Smart Search Engine</title>
 
-<meta name="description" content="SearchHub helps users find useful information quickly with a simple and fast search experience.">
+<meta name="description"
+content="SearchHub helps you search the web quickly using Google Programmable Search Engine.">
 
-<style>
+<meta name="keywords"
+content="SearchHub, Search Engine, Google Search, Web Search">
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial, sans-serif;
-}
+<meta name="author" content="SearchHub">
 
+<link rel="stylesheet" href="style.css">
 
-body{
+<link rel="icon" href="favicon.ico">
 
-background:linear-gradient(135deg,#2563eb,#7c3aed);
-min-height:100vh;
-display:flex;
-justify-content:center;
-align-items:center;
-
-}
-
-
-.container{
-
-background:white;
-width:90%;
-max-width:700px;
-padding:50px 30px;
-border-radius:20px;
-text-align:center;
-box-shadow:0 10px 30px rgba(0,0,0,0.2);
-
-}
-
-
-.logo{
-
-font-size:40px;
-font-weight:bold;
-color:#2563eb;
-margin-bottom:15px;
-
-}
-
-
-.tagline{
-
-font-size:18px;
-color:#555;
-margin-bottom:30px;
-
-}
-
-
-.search-box{
-
-display:flex;
-gap:10px;
-
-}
-
-
-input{
-
-flex:1;
-padding:15px;
-font-size:16px;
-border:2px solid #ddd;
-border-radius:10px;
-outline:none;
-
-}
-
-
-input:focus{
-
-border-color:#2563eb;
-
-}
-
-
-button{
-
-padding:15px 30px;
-background:#2563eb;
-color:white;
-border:none;
-border-radius:10px;
-font-size:16px;
-cursor:pointer;
-
-}
-
-
-button:hover{
-
-background:#1d4ed8;
-
-}
-
-
-.features{
-
-margin-top:40px;
-display:flex;
-justify-content:space-around;
-flex-wrap:wrap;
-
-}
-
-
-.feature{
-
-padding:15px;
-color:#444;
-
-}
-
-
-footer{
-
-margin-top:30px;
-font-size:14px;
-
-}
-
-
-footer a{
-
-color:#2563eb;
-text-decoration:none;
-margin:5px;
-
-}
-
-
-</style>
+<script async
+src="https://cse.google.com/cse.js?cx=62eb21d7597434918">
+</script>
 
 </head>
 
-
 <body>
 
-
-<div class="container">
-
+<header>
 
 <div class="logo">
+
 🔎 SearchHub
+
 </div>
 
+<nav>
 
-<p class="tagline">
-Search smarter. Find useful information faster.
+<a href="#">Home</a>
+<a href="about.html">About</a>
+<a href="contact.html">Contact</a>
+<a href="privacy.html">Privacy</a>
+
+</nav>
+
+</header>
+
+<section class="hero">
+
+<h1>Search Smarter</h1>
+
+<p>
+Find websites, articles and useful information instantly.
 </p>
 
+<div class="search-card">
 
-
-<div class="search-box">
-
-<input 
-id="searchInput"
-placeholder="Enter your search...">
-
-
-<button onclick="searchNow()">
-Search
-</button>
-
+<div class="gcse-search"></div>
 
 </div>
 
-
-
-<div class="features">
-
-<div class="feature">
-⚡ Fast Search
-</div>
-
-<div class="feature">
-📱 Mobile Friendly
-</div>
-
-<div class="feature">
-🌐 Easy Access
-</div>
-
-</div>
-
-
-
-<footer>
-
-<a href="privacy.html">
-Privacy Policy
-</a>
-
-|
-
-<a href="terms.html">
-Terms
-</a>
-
-|
-
-<a href="contact.html">
-Contact
-</a>
-
-
-</footer>
-
-
-</div>
-
-
-
-<script>
-
-
-function searchNow(){
-
-let query=document.getElementById("searchInput").value;
-
-
-if(query.trim()==""){
-
-alert("Please enter search keyword");
-
-return;
-
-}
-
-
-window.open(
-"result.html?q="+encodeURIComponent(query),
-"_blank"
-);
-
-
-}
-
-
-</script>
-
-
-
-</body>
-<script async src="https://cse.google.com/cse.js?cx=62eb21d7597434918"></script>
-</html>
+</section>
