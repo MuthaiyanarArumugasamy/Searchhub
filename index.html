@@ -1,26 +1,19 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>SearchHub - Smart Search Engine</title>
+<title>SearchHub AI</title>
 
-<meta name="description" content="SearchHub is a fast, modern search website powered by Google Programmable Search Engine.">
-<meta name="keywords" content="SearchHub, Search Engine, Google Search, Web Search">
-<meta name="author" content="SearchHub">
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="assets/css/responsive.css">
 
-<meta property="og:title" content="SearchHub">
-<meta property="og:description" content="Search the web instantly with SearchHub.">
-<meta property="og:type" content="website">
-
-<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <link rel="manifest" href="manifest.json">
-
-<link rel="icon" href="favicon.png">
 
 <meta name="theme-color" content="#0f172a">
 
@@ -28,46 +21,79 @@
 
 <body>
 
-<header>
+<nav class="navbar">
 
 <div class="logo">
-<h1>SearchHub</h1>
-<p>Powered by Google Search</p>
+
+<div class="logo-icon">🤖</div>
+
+<h2>SearchHub AI</h2>
+
 </div>
 
-<nav>
+<ul>
 
-<a href="index.html">Home</a>
+<li><a href="#">Home</a></li>
 
-<a href="about.html">About</a>
+<li><a href="pages/chat.html">AI Chat</a></li>
 
-<a href="contact.html">Contact</a>
+<li><a href="pages/search.html">Search</a></li>
 
-<a href="privacy.html">Privacy</a>
+<li><a href="pages/about.html">About</a></li>
 
-<a href="terms.html">Terms</a>
+<li><a href="pages/contact.html">Contact</a></li>
+
+</ul>
+
+<div class="nav-buttons">
 
 <button id="themeBtn">🌙</button>
 
-</nav>
+<a href="pages/login.html" class="loginBtn">Login</a>
 
-</header>
+</div>
+
+</nav>
 
 <section class="hero">
 
-<h2>Search the Entire Web</h2>
+<div class="hero-left">
+
+<h1>
+
+The Future of AI Search Starts Here
+
+</h1>
 
 <p>
-Fast • Secure • Accurate
+
+SearchHub AI combines Google Search and AI Chat into one beautiful platform.
+
 </p>
 
-</section>
+<div class="hero-buttons">
 
-<section class="search-box">
+<a href="pages/chat.html" class="primaryBtn">
 
-<script async src="https://cse.google.com/cse.js?cx=62eb21d7597434918"></script>
+Start AI Chat
 
-<div class="gcse-search"></div>
+</a>
+
+<a href="pages/search.html" class="secondaryBtn">
+
+Google Search
+
+</a>
+
+</div>
+
+</div>
+
+<div class="hero-right">
+
+<img src="assets/images/ai.png">
+
+</div>
 
 </section>
 
@@ -75,78 +101,90 @@ Fast • Secure • Accurate
 
 <div class="card">
 
-<h3>Fast Search</h3>
+<h3>🤖 AI Chat</h3>
 
 <p>
+
+Ask anything and receive intelligent answers.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>🔍 Smart Search</h3>
+
+<p>
+
 Powered by Google Programmable Search Engine.
+
 </p>
 
 </div>
 
 <div class="card">
 
-<h3>Secure</h3>
+<h3>📁 File Upload</h3>
 
 <p>
-HTTPS ready and privacy focused.
+
+Upload PDF, DOCX and Images.
+
 </p>
 
 </div>
 
 <div class="card">
 
-<h3>Responsive</h3>
+<h3>🎤 Voice Search</h3>
 
 <p>
-Works on desktop, tablet and mobile.
+
+Speak instead of typing.
+
 </p>
 
 </div>
 
 <div class="card">
 
-<h3>Free</h3>
+<h3>🌙 Dark Mode</h3>
 
 <p>
-Search the web anytime without registration.
+
+Beautiful interface day and night.
+
 </p>
 
 </div>
 
-</section>
+<div class="card">
 
-<section class="about-short">
-
-<h2>Why SearchHub?</h2>
+<h3>⚡ Fast</h3>
 
 <p>
-SearchHub provides a clean and distraction-free search experience using Google Programmable Search Engine. It is designed for speed, simplicity, and mobile-friendly performance.
+
+Optimized for desktop and mobile.
+
 </p>
+
+</div>
 
 </section>
 
 <footer>
 
 <p>
-© 2026 SearchHub. All Rights Reserved.
+
+© 2026 SearchHub AI
+
 </p>
-
-<div class="footer-links">
-
-<a href="about.html">About</a>
-
-<a href="contact.html">Contact</a>
-
-<a href="privacy.html">Privacy Policy</a>
-
-<a href="terms.html">Terms</a>
-
-</div>
 
 </footer>
 
-<script src="script.js"></script>
+<script src="assets/js/app.js"></script>
 
 </body>
+
 </html>
-```
