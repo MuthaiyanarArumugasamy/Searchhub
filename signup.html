@@ -63,7 +63,229 @@ window.location="dashboard.html";
 catch(error){
 
 alert(error.message);
+  
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SearchHub - Sign Up</title>
 
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+
+background:linear-gradient(135deg,#0f172a,#2563eb);
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+height:100vh;
+
+}
+
+.card{
+
+width:400px;
+
+background:white;
+
+padding:40px;
+
+border-radius:20px;
+
+box-shadow:0 20px 40px rgba(0,0,0,.3);
+
+}
+
+h1{
+
+text-align:center;
+
+margin-bottom:30px;
+
+color:#2563eb;
+
+}
+
+input{
+
+width:100%;
+
+padding:15px;
+
+margin:10px 0;
+
+border-radius:10px;
+
+border:1px solid #ddd;
+
+font-size:16px;
+
+}
+
+button{
+
+width:100%;
+
+padding:15px;
+
+background:#2563eb;
+
+color:white;
+
+border:none;
+
+border-radius:10px;
+
+font-size:18px;
+
+cursor:pointer;
+
+margin-top:20px;
+
+}
+
+button:hover{
+
+background:#1d4ed8;
+
+}
+
+a{
+
+text-decoration:none;
+
+color:#2563eb;
+
+}
+
+p{
+
+margin-top:20px;
+
+text-align:center;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="card">
+
+<h1>Create Account</h1>
+
+<input id="name" placeholder="Full Name">
+
+<input id="email" type="email" placeholder="Email">
+
+<input id="password" type="password" placeholder="Password">
+
+<button id="signupBtn">
+Create Account
+</button>
+
+<p>
+
+Already have an account?
+
+<a href="login.html">
+
+Login
+
+</a>
+
+</p>
+
+</div>
+
+<script type="module">
+
+import { auth, db } from "./firebase.js";
+
+import {
+
+createUserWithEmailAndPassword
+
+}
+
+from "https://www.gstatic.com/firebasejs/12.0.0/firebase-auth.js";
+
+import {
+
+doc,
+
+setDoc,
+
+serverTimestamp
+
+}
+
+from "https://www.gstatic.com/firebasejs/12.0.0/firebase-firestore.js";
+
+document.getElementById("signupBtn").onclick = async ()=>{
+
+const name=document.getElementById("name").value.trim();
+
+const email=document.getElementById("email").value.trim();
+
+const password=document.getElementById("password").value;
+
+if(!name || !email || !password){
+
+alert("Please fill all fields");
+
+return;
+
+}
+
+try{
+
+const userCredential=
+
+await createUserWithEmailAndPassword(auth,email,password);
+
+await setDoc(doc(db,"users",userCredential.user.uid),{
+
+name:name,
+
+email:email,
+
+plan:"Free",
+
+createdAt:serverTimestamp()
+
+});
+
+alert("Account created successfully!");
+
+window.location.href="dashboard.html";
+
+}
+
+catch(error){
+
+alert(error.message);
+
+}
+
+}
+
+</script>
+
+</body>
+</html>
 }
 
 }
