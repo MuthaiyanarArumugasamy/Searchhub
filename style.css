@@ -1,330 +1,251 @@
+```css
 /* ==========================
-   SearchHub Professional CSS
+   SearchHub - style.css
 ========================== */
 
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
 }
 
 body{
-
-    font-family:Arial, Helvetica, sans-serif;
-
-    background:linear-gradient(135deg,#2563eb,#7c3aed);
-
-    color:#ffffff;
-
-    min-height:100vh;
-
+    background:#f5f7fb;
+    color:#222;
+    transition:.4s;
 }
 
-
-/* Header */
-
-.header{
-
-    width:100%;
-
+header{
     display:flex;
-
     justify-content:space-between;
-
     align-items:center;
-
     padding:20px 8%;
-
-    position:sticky;
-
-    top:0;
-
-    background:rgba(0,0,0,.15);
-
-    backdrop-filter:blur(10px);
-
+    background:#0f172a;
+    color:white;
+    flex-wrap:wrap;
 }
 
-.logo{
+.logo h1{
+    font-size:32px;
+}
 
-    font-size:34px;
-
-    font-weight:bold;
-
+.logo p{
+    opacity:.8;
+    margin-top:5px;
 }
 
 nav{
-
     display:flex;
-
-    gap:25px;
-
+    gap:20px;
+    align-items:center;
+    flex-wrap:wrap;
 }
 
 nav a{
-
     color:white;
-
     text-decoration:none;
-
-    font-size:17px;
-
+    font-weight:bold;
     transition:.3s;
-
 }
 
 nav a:hover{
-
-    color:#ffd54f;
-
+    color:#38bdf8;
 }
 
-
-/* Hero */
+#themeBtn{
+    background:#38bdf8;
+    color:white;
+    border:none;
+    padding:10px 16px;
+    border-radius:8px;
+    cursor:pointer;
+    font-size:16px;
+}
 
 .hero{
-
-    width:100%;
-
-    max-width:1200px;
-
-    margin:auto;
-
-    padding:80px 20px;
-
     text-align:center;
-
+    padding:80px 20px;
+    background:linear-gradient(135deg,#2563eb,#38bdf8);
+    color:white;
 }
 
-.hero h1{
-
-    font-size:58px;
-
-    margin-bottom:20px;
-
+.hero h2{
+    font-size:48px;
+    margin-bottom:15px;
 }
 
 .hero p{
-
     font-size:20px;
-
-    color:#f1f1f1;
-
-    margin-bottom:40px;
-
 }
 
-
-/* Search */
-
-.search-container{
-
-    background:#ffffff;
-
-    border-radius:20px;
-
-    padding:25px;
-
-    box-shadow:0 20px 40px rgba(0,0,0,.25);
-
+.search-box{
+    width:90%;
+    max-width:900px;
+    margin:40px auto;
+    background:white;
+    padding:30px;
+    border-radius:15px;
+    box-shadow:0 10px 30px rgba(0,0,0,.1);
 }
-
-
-/* Feature Cards */
 
 .features{
-
-    width:90%;
-
-    max-width:1200px;
-
-    margin:60px auto;
-
     display:grid;
-
-    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
     gap:25px;
-
+    width:90%;
+    max-width:1200px;
+    margin:auto;
+    margin-bottom:60px;
 }
 
 .card{
-
-    background:rgba(255,255,255,.12);
-
-    backdrop-filter:blur(12px);
-
-    padding:30px;
-
-    border-radius:18px;
-
-    transition:.3s;
-
+    background:white;
+    border-radius:15px;
+    padding:25px;
+    text-align:center;
+    box-shadow:0 10px 20px rgba(0,0,0,.08);
+    transition:.35s;
 }
 
 .card:hover{
-
     transform:translateY(-10px);
-
 }
 
 .card h3{
-
-    font-size:24px;
-
     margin-bottom:15px;
-
+    color:#2563eb;
 }
 
-.card p{
-
-    color:#eeeeee;
-
-    line-height:1.7;
-
-}
-/* ==========================
-   Footer
-========================== */
-
-footer{
-    margin-top:80px;
-    background:rgba(0,0,0,.20);
-    backdrop-filter:blur(10px);
-    padding:50px 20px 20px;
-}
-
-.footer-container{
-    max-width:1200px;
+.about-short{
+    width:90%;
+    max-width:900px;
     margin:auto;
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-    gap:30px;
+    text-align:center;
+    padding-bottom:60px;
 }
 
-.footer-box h3{
-    margin-bottom:15px;
-    color:#ffffff;
+.about-short h2{
+    margin-bottom:20px;
+    color:#2563eb;
 }
 
-.footer-box p{
-    color:#dddddd;
+.about-short p{
     line-height:1.8;
 }
 
-.footer-box a{
-    display:block;
-    color:#eeeeee;
-    text-decoration:none;
-    margin:8px 0;
-    transition:.3s;
-}
-
-.footer-box a:hover{
-    color:#ffd54f;
-    padding-left:5px;
-}
-
-.copyright{
-    text-align:center;
-    margin-top:35px;
-    padding-top:20px;
-    border-top:1px solid rgba(255,255,255,.2);
-    color:#dddddd;
-}
-
-/* ==========================
-   Buttons
-========================== */
-
-.btn{
-    display:inline-block;
-    margin-top:20px;
-    padding:14px 28px;
-    background:#2563eb;
+footer{
+    background:#0f172a;
     color:white;
-    border-radius:10px;
+    text-align:center;
+    padding:35px;
+}
+
+.footer-links{
+    margin-top:20px;
+}
+
+.footer-links a{
+    color:white;
     text-decoration:none;
-    transition:.3s;
+    margin:0 10px;
 }
 
-.btn:hover{
-    background:#1d4ed8;
-    transform:translateY(-2px);
+.footer-links a:hover{
+    color:#38bdf8;
 }
 
-/* ==========================
-   Animations
-========================== */
+/* Google CSE */
 
-.hero{
-    animation:fadeIn 1s ease;
+.gsc-control-cse{
+    border:none !important;
+    background:transparent !important;
 }
 
-.card{
-    animation:slideUp .8s ease;
+.gsc-input{
+    border-radius:8px !important;
 }
 
-@keyframes fadeIn{
-    from{
-        opacity:0;
-        transform:translateY(30px);
-    }
-    to{
-        opacity:1;
-        transform:translateY(0);
-    }
+.gsc-search-button-v2{
+    border-radius:8px !important;
 }
 
-@keyframes slideUp{
-    from{
-        opacity:0;
-        transform:translateY(40px);
-    }
-    to{
-        opacity:1;
-        transform:translateY(0);
-    }
+/* Dark Mode */
+
+.dark{
+    background:#111827;
+    color:white;
 }
 
-/* ==========================
-   Responsive
-========================== */
+.dark header{
+    background:#020617;
+}
 
-@media(max-width:900px){
+.dark .card{
+    background:#1e293b;
+    color:white;
+}
 
-.header{
+.dark .search-box{
+    background:#1e293b;
+}
+
+.dark footer{
+    background:#020617;
+}
+
+.dark .about-short h2{
+    color:#38bdf8;
+}
+
+.dark .card h3{
+    color:#38bdf8;
+}
+
+/* Responsive */
+
+@media(max-width:768px){
+
+header{
     flex-direction:column;
-    gap:15px;
+    text-align:center;
 }
 
 nav{
-    flex-wrap:wrap;
     justify-content:center;
+    margin-top:20px;
 }
 
-.hero h1{
-    font-size:40px;
+.hero h2{
+    font-size:34px;
 }
 
 .hero p{
     font-size:18px;
 }
 
+.search-box{
+    width:95%;
 }
 
-@media(max-width:600px){
+}
+
+@media(max-width:500px){
 
 .hero{
     padding:60px 15px;
 }
 
-.hero h1{
-    font-size:32px;
+.hero h2{
+    font-size:28px;
 }
 
-.logo{
-    font-size:28px;
+.logo h1{
+    font-size:26px;
+}
+
+nav{
+    gap:12px;
 }
 
 nav a{
@@ -335,29 +256,5 @@ nav a{
     padding:20px;
 }
 
-.search-container{
-    padding:15px;
 }
-
-}
-
-/* ==========================
-   Google CSE Customization
-========================== */
-
-.gsc-control-cse{
-    border:none !important;
-    background:transparent !important;
-}
-
-.gsc-search-box{
-    margin:0 !important;
-}
-
-.gsc-input{
-    border-radius:8px !important;
-}
-
-.gsc-search-button-v2{
-    border-radius:8px !important;
-}
+```
