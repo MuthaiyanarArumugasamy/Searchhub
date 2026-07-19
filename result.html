@@ -1,89 +1,261 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-<title>Smart Search Hub</title>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Search Results - SearchHub</title>
+
+<meta name="description" content="SearchHub search results page.">
 
 <style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+
 body{
-    margin:0;
-    font-family:Arial;
-    background:linear-gradient(135deg,#667eea,#764ba2);
-    height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
+
+background:#f3f4f6;
+padding:30px;
+
 }
 
-.box{
-    background:white;
-    padding:40px;
-    border-radius:15px;
-    text-align:center;
-    width:400px;
+
+.header{
+
+background:white;
+padding:20px;
+border-radius:15px;
+text-align:center;
+margin-bottom:20px;
+
 }
 
-input{
-    width:90%;
-    padding:12px;
-    border:1px solid #ccc;
-    border-radius:8px;
-    font-size:16px;
+
+.logo{
+
+font-size:32px;
+font-weight:bold;
+color:#2563eb;
+
 }
 
-button{
-    margin-top:20px;
-    padding:12px 30px;
-    background:#2563eb;
-    color:white;
-    border:none;
-    border-radius:8px;
-    cursor:pointer;
+
+.result-box{
+
+background:white;
+padding:25px;
+border-radius:15px;
+margin-bottom:20px;
+
 }
 
-button:hover{
-    background:#1d4ed8;
+
+.keyword{
+
+font-size:24px;
+color:#111827;
+margin-top:10px;
+
 }
+
+
+.result{
+
+margin-top:20px;
+padding:15px;
+border-left:5px solid #2563eb;
+background:#f9fafb;
+
+}
+
+
+.ad-box{
+
+height:250px;
+background:#e5e7eb;
+border-radius:10px;
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+font-size:20px;
+color:#555;
+
+margin-top:20px;
+
+}
+
+
+footer{
+
+text-align:center;
+margin-top:30px;
+
+}
+
+
+footer a{
+
+color:#2563eb;
+text-decoration:none;
+margin:10px;
+
+}
+
+
 </style>
 
 </head>
 
+
 <body>
 
-<div class="box">
 
-<h1>Search Hub</h1>
 
-<p>Find information quickly</p>
+<div class="header">
 
-<input id="search" placeholder="Type your search...">
+<div class="logo">
+🔎 SearchHub
+</div>
 
-<br>
-
-<button onclick="searchNow()">Search</button>
+<p>
+Search Results
+</p>
 
 </div>
 
 
+
+
+<div class="result-box">
+
+
+<h2>
+Your Search:
+</h2>
+
+
+<div class="keyword" id="keyword">
+
+Loading...
+
+</div>
+
+
+
+<div class="result">
+
+<h3>
+Information Result
+</h3>
+
+<p>
+Here you can display useful articles, tools, guides,
+or search information related to the user's keyword.
+</p>
+
+</div>
+
+
+
+<div class="result">
+
+<h3>
+Related Content
+</h3>
+
+<p>
+Add your original website content here to improve SEO
+and provide value to visitors.
+</p>
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+<!-- Google AdSense Area -->
+
+<div class="result-box">
+
+
+<h3>
+Advertisement
+</h3>
+
+
+<div class="ad-box">
+
+
+AdSense Advertisement
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+<footer>
+
+<a href="privacy.html">
+Privacy Policy
+</a>
+
+
+<a href="terms.html">
+Terms
+</a>
+
+
+<a href="contact.html">
+Contact
+</a>
+
+
+</footer>
+
+
+
+
+
 <script>
 
-function searchNow(){
 
-let query=document.getElementById("search").value;
+let params = new URLSearchParams(window.location.search);
 
-if(query==""){
-alert("Enter search text");
-return;
-}
 
-window.open(
-"result.html?q="+encodeURIComponent(query),
-"_blank"
-);
+let searchWord = params.get("q");
 
-}
+
+document.getElementById("keyword").innerHTML =
+searchWord;
+
+
 
 </script>
 
 
+
+
 </body>
+
 </html>
