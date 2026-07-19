@@ -168,3 +168,46 @@ window.addEventListener("load",()=>{
 
 });
 ```
+import { auth, db } from "./firebase.js";
+
+import {
+collection,
+addDoc,
+serverTimestamp
+}
+from "https://www.gstatic.com/firebasejs/12.0.0/firebase-firestore.js";
+
+window.searchWeb = async function(){
+
+const input = document.getElementById("searchInput");
+
+if(!input) return;
+
+const query = input.value.trim();
+
+if(query==""){
+
+alert("Enter search");
+
+return;
+
+}
+
+if(auth.currentUser){
+
+await addDoc(collection(db,"searchHistory"),{
+
+uid:auth.currentUser.uid,
+
+query:query,
+
+createdAt:serverTimestamp()
+
+});
+
+}
+
+window.location.href =
+"result.html?q="+encodeURIComponent(query);
+
+}
