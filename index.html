@@ -1,89 +1,262 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-<title>Smart Search Hub</title>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>SearchHub - Smart Search Engine</title>
+
+<meta name="description" content="SearchHub helps users find useful information quickly with a simple and fast search experience.">
 
 <style>
-body{
-    margin:0;
-    font-family:Arial;
-    background:linear-gradient(135deg,#667eea,#764ba2);
-    height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial, sans-serif;
 }
 
-.box{
-    background:white;
-    padding:40px;
-    border-radius:15px;
-    text-align:center;
-    width:400px;
+
+body{
+
+background:linear-gradient(135deg,#2563eb,#7c3aed);
+min-height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+
 }
+
+
+.container{
+
+background:white;
+width:90%;
+max-width:700px;
+padding:50px 30px;
+border-radius:20px;
+text-align:center;
+box-shadow:0 10px 30px rgba(0,0,0,0.2);
+
+}
+
+
+.logo{
+
+font-size:40px;
+font-weight:bold;
+color:#2563eb;
+margin-bottom:15px;
+
+}
+
+
+.tagline{
+
+font-size:18px;
+color:#555;
+margin-bottom:30px;
+
+}
+
+
+.search-box{
+
+display:flex;
+gap:10px;
+
+}
+
 
 input{
-    width:90%;
-    padding:12px;
-    border:1px solid #ccc;
-    border-radius:8px;
-    font-size:16px;
+
+flex:1;
+padding:15px;
+font-size:16px;
+border:2px solid #ddd;
+border-radius:10px;
+outline:none;
+
 }
+
+
+input:focus{
+
+border-color:#2563eb;
+
+}
+
 
 button{
-    margin-top:20px;
-    padding:12px 30px;
-    background:#2563eb;
-    color:white;
-    border:none;
-    border-radius:8px;
-    cursor:pointer;
+
+padding:15px 30px;
+background:#2563eb;
+color:white;
+border:none;
+border-radius:10px;
+font-size:16px;
+cursor:pointer;
+
 }
 
+
 button:hover{
-    background:#1d4ed8;
+
+background:#1d4ed8;
+
 }
+
+
+.features{
+
+margin-top:40px;
+display:flex;
+justify-content:space-around;
+flex-wrap:wrap;
+
+}
+
+
+.feature{
+
+padding:15px;
+color:#444;
+
+}
+
+
+footer{
+
+margin-top:30px;
+font-size:14px;
+
+}
+
+
+footer a{
+
+color:#2563eb;
+text-decoration:none;
+margin:5px;
+
+}
+
+
 </style>
 
 </head>
 
+
 <body>
 
-<div class="box">
 
-<h1>Search Hub</h1>
+<div class="container">
 
-<p>Find information quickly</p>
 
-<input id="search" placeholder="Type your search...">
+<div class="logo">
+🔎 SearchHub
+</div>
 
-<br>
 
-<button onclick="searchNow()">Search</button>
+<p class="tagline">
+Search smarter. Find useful information faster.
+</p>
+
+
+
+<div class="search-box">
+
+<input 
+id="searchInput"
+placeholder="Enter your search...">
+
+
+<button onclick="searchNow()">
+Search
+</button>
+
 
 </div>
 
 
+
+<div class="features">
+
+<div class="feature">
+⚡ Fast Search
+</div>
+
+<div class="feature">
+📱 Mobile Friendly
+</div>
+
+<div class="feature">
+🌐 Easy Access
+</div>
+
+</div>
+
+
+
+<footer>
+
+<a href="privacy.html">
+Privacy Policy
+</a>
+
+|
+
+<a href="terms.html">
+Terms
+</a>
+
+|
+
+<a href="contact.html">
+Contact
+</a>
+
+
+</footer>
+
+
+</div>
+
+
+
 <script>
+
 
 function searchNow(){
 
-let query=document.getElementById("search").value;
+let query=document.getElementById("searchInput").value;
 
-if(query==""){
-alert("Enter search text");
+
+if(query.trim()==""){
+
+alert("Please enter search keyword");
+
 return;
+
 }
+
 
 window.open(
 "result.html?q="+encodeURIComponent(query),
 "_blank"
 );
 
+
 }
+
 
 </script>
 
 
+
 </body>
+
 </html>
