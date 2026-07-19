@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>SearchHub AI Chat</title>
+
+<link rel="stylesheet" href="../assets/css/style.css">
+<link rel="stylesheet" href="../assets/css/chat.css">
+<link rel="stylesheet" href="../assets/css/responsive.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+<!-- Sidebar -->
+
+<div class="sidebar">
+
+<div class="sidebar-top">
+
+<h2>🤖 SearchHub AI</h2>
+
+<button id="newChat">
+➕ New Chat
+</button>
+
+</div>
+
+<div class="chat-history">
+
+<div class="history-item active">
+New Conversation
+</div>
+
+<div class="history-item">
+How to learn JavaScript?
+</div>
+
+<div class="history-item">
+Create HTML Website
+</div>
+
+<div class="history-item">
+Python Tutorial
+</div>
+
+<div class="history-item">
+Firebase Login
+</div>
+
+</div>
+
+<div class="sidebar-bottom">
+
+<a href="../index.html">🏠 Home</a>
+
+<a href="search.html">🔍 Search</a>
+
+<a href="profile.html">👤 Profile</a>
+
+<a href="settings.html">⚙ Settings</a>
+
+</div>
+
+</div>
+
+<!-- Main Chat -->
+
+<div class="main-chat">
+
+<header class="chat-header">
+
+<div>
+
+<h2>SearchHub AI</h2>
+
+<p>Your Intelligent Assistant</p>
+
+</div>
+
+<button id="themeBtn">
+🌙
+</button>
+
+</header>
+
+<!-- Messages -->
+
+<div class="messages" id="messages">
+
+<!-- AI -->
+
+<div class="message ai">
+
+<div class="avatar">
+
+🤖
+
+</div>
+
+<div class="bubble">
+
+<h4>SearchHub AI</h4>
+
+<p>
+
+Hello 👋
+
+How can I help you today?
+
+</p>
+
+</div>
+
+</div>
+
+<!-- User -->
+
+<div class="message user">
+
+<div class="bubble">
+
+<p>
+
+Create a modern website.
+
+</p>
+
+</div>
+
+<div class="avatar">
+
+😊
+
+</div>
+
+</div>
+
+<!-- AI -->
+
+<div class="message ai">
+
+<div class="avatar">
+
+🤖
+
+</div>
+
+<div class="bubble">
+
+<p>
+
+Sure!
+
+I can generate HTML, CSS, JavaScript, Firebase, React, Python and much more.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- Input -->
+
+<div class="chat-input">
+
+<button class="iconBtn">
+📎
+</button>
+
+<textarea
+
+id="prompt"
+
+placeholder="Message SearchHub AI..."
+
+rows="1">
+
+</textarea>
+
+<button id="sendBtn">
+
+➤
+
+</button>
+
+</div>
+
+</div>
+
+<script src="../assets/js/chat.js"></script>
+<script src="../assets/js/theme.js"></script>
+
+</body>
+
+</html>
