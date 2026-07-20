@@ -1,418 +1,290 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
 
+<head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>SearchHub AI Pro</title>
+<title>SearchHub AI</title>
 
-<meta name="description" content="SearchHub AI - Your Intelligent AI Assistant">
+<meta name="description" content="SearchHub AI - Smart AI Search Engine">
 
-<script src="https://cdn.tailwindcss.com"></script>
-<script type="module" src="script.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-<style>
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
-*{
-font-family:'Inter',sans-serif;
-}
-
-body{
-
-background:#0f172a;
-color:white;
-
-}
-
-.glass{
-
-background:rgba(255,255,255,.05);
-
-backdrop-filter:blur(20px);
-
-border:1px solid rgba(255,255,255,.08);
-
-}
-
-.gradient{
-
-background:linear-gradient(135deg,#2563eb,#7c3aed);
-
-}
-
-</style>
+<link rel="stylesheet" href="style.css">
 
 </head>
 
 <body>
 
-<!-- Navbar -->
+<div class="app">
 
-<nav class="fixed top-0 left-0 w-full glass z-50">
+<!-- ================= Sidebar ================= -->
 
-<div class="max-w-7xl mx-auto flex justify-between items-center p-5">
+<aside class="sidebar">
 
-<div class="flex items-center gap-3">
+<div class="logo">
 
-<div class="w-12 h-12 rounded-full gradient flex items-center justify-center text-2xl">
+<div class="logo-icon">
+<i class="fa-solid fa-brain"></i>
+</div>
 
-🤖
+<div>
+<h2>SearchHub AI</h2>
+<p>Powered by AI</p>
+</div>
 
+</div>
+
+<button class="new-chat">
+
+<i class="fa-solid fa-plus"></i>
+
+<span>New Chat</span>
+
+</button>
+
+<nav>
+
+<a class="active">
+
+<i class="fa-solid fa-comments"></i>
+
+<span>AI Chat</span>
+
+</a>
+
+<a>
+
+<i class="fa-solid fa-globe"></i>
+
+<span>Web Search</span>
+
+</a>
+
+<a>
+
+<i class="fa-solid fa-image"></i>
+
+<span>Images</span>
+
+</a>
+
+<a>
+
+<i class="fa-solid fa-video"></i>
+
+<span>Videos</span>
+
+</a>
+
+<a>
+
+<i class="fa-solid fa-file"></i>
+
+<span>Documents</span>
+
+</a>
+
+<a>
+
+<i class="fa-solid fa-book"></i>
+
+<span>Library</span>
+
+</a>
+
+<a>
+
+<i class="fa-solid fa-clock-rotate-left"></i>
+
+<span>History</span>
+
+</a>
+
+<a>
+
+<i class="fa-solid fa-star"></i>
+
+<span>Favorites</span>
+
+</a>
+
+<a>
+
+<i class="fa-solid fa-gear"></i>
+
+<span>Settings</span>
+
+</a>
+
+</nav>
+
+<div class="recent">
+
+<h4>Recent Chats</h4>
+
+<ul>
+
+<li>HTML Tutorial</li>
+
+<li>Python Project</li>
+
+<li>Java Interview</li>
+
+<li>AI News</li>
+
+<li>Web Development</li>
+
+</ul>
+
+</div>
+
+<div class="profile">
+
+<div class="avatar">
+A
 </div>
 
 <div>
 
-<h1 class="text-2xl font-bold">
+<h3>Anupriya</h3>
 
-SearchHub AI
-
-</h1>
-
-<p class="text-gray-400 text-sm">
-
-Professional AI Platform
-
-</p>
+<p>Free Plan</p>
 
 </div>
 
 </div>
 
-<div class="hidden lg:flex gap-8">
+</aside>
 
-<a href="#" class="hover:text-cyan-400">Home</a>
+<!-- ================= Main ================= -->
 
-<a href="pages/chat.html" class="hover:text-cyan-400">AI Chat</a>
+<main class="main">
 
-<a href="pages/library.html" class="hover:text-cyan-400">Library</a>
+<header>
 
-<a href="pages/projects.html" class="hover:text-cyan-400">Projects</a>
+<div class="left">
 
-<a href="pages/plugins.html" class="hover:text-cyan-400">Plugins</a>
-
-<a href="pricing.html" class="hover:text-cyan-400">Pricing</a>
+<h2>SearchHub AI</h2>
 
 </div>
 
-<div class="flex gap-3">
+<div class="right">
 
-<a href="login.html"
+<button class="theme">
 
-class="px-5 py-2 rounded-xl bg-slate-700">
+<i class="fa-solid fa-moon"></i>
+
+</button>
+
+<button class="login">
 
 Login
 
-</a>
-
-<a href="register.html"
-
-class="px-5 py-2 rounded-xl gradient">
-
-Sign Up
-
-</a>
+</button>
 
 </div>
 
-</div>
+</header>
 
-</nav>
+<section class="hero">
 
-<!-- Hero -->
+<h1>
 
-<section class="pt-40 pb-24">
-
-<div class="max-w-6xl mx-auto text-center px-6">
-
-<h1 class="text-6xl font-extrabold leading-tight">
-
-The Future of
-
-<span class="text-cyan-400">
-
-AI Search
-
-</span>
-
-Starts Here
+How can I help you today?
 
 </h1>
 
-<p class="mt-8 text-xl text-gray-300">
+<p>
 
-Chat, Search, Code, Create Projects and manage everything from one AI workspace.
+Search anything, ask AI, generate ideas, find images, videos and documents.
 
 </p>
 
-<!-- Prompt -->
+<div class="search-box">
 
-<div class="glass mt-14 rounded-3xl p-6 max-w-4xl mx-auto">
-  
-<div class="flex gap-3 mb-6">
+<button>
+
+<i class="fa-solid fa-plus"></i>
+
+</button>
 
 <input
-id="searchInput"
 type="text"
-placeholder="Search websites, AI, coding..."
-class="flex-1 bg-slate-800 rounded-xl p-4 outline-none">
+id="searchInput"
+placeholder="Ask anything or search the web...">
 
-<button
-onclick="searchWeb()"
-class="gradient px-8 rounded-xl">
+<button id="searchBtn">
 
-Search
-
-</button>
-
-</div>
-<textarea
-
-rows="3"
-
-placeholder="Ask SearchHub AI anything..."
-
-class="w-full bg-transparent outline-none text-lg resize-none"
-
-></textarea>
-
-<div class="flex justify-between items-center mt-6">
-
-<div class="flex gap-3">
-
-<button class="px-4 py-2 rounded-xl bg-slate-700">
-
-📎 Upload
-
-</button>
-
-<button class="px-4 py-2 rounded-xl bg-slate-700">
-
-🎤 Voice
+<i class="fa-solid fa-paper-plane"></i>
 
 </button>
 
 </div>
 
-<a href="pages/chat.html"
+<div class="quick-actions">
 
-class="gradient px-8 py-3 rounded-xl">
+<button>🌍 Web</button>
 
-Start Chat →
+<button>🤖 AI</button>
 
-</a>
+<button>🖼 Images</button>
 
-</div>
+<button>🎥 Videos</button>
 
-</div>
+<button>📄 PDF</button>
+
+<button>💻 Code</button>
 
 </div>
 
 </section>
 
-<!-- Quick Actions -->
+<section class="cards">
 
-<section class="max-w-7xl mx-auto px-6 pb-24">
+<div class="card">
 
-<h2 class="text-4xl font-bold mb-12">
+<i class="fa-solid fa-robot"></i>
 
-Quick Actions
+<h3>AI Assistant</h3>
 
-</h2>
-
-<div class="grid lg:grid-cols-3 gap-8">
-
-<div class="glass rounded-3xl p-8">
-
-<h3 class="text-2xl font-semibold">
-
-💻 Write Code
-
-</h3>
-
-<p class="mt-4 text-gray-400">
-
-Generate HTML, CSS, JavaScript, Python and more.
-
-</p>
+<p>Chat with AI instantly.</p>
 
 </div>
 
-<div class="glass rounded-3xl p-8">
+<div class="card">
 
-<h3 class="text-2xl font-semibold">
+<i class="fa-solid fa-globe"></i>
 
-📄 Summarize
+<h3>Web Search</h3>
 
-</h3>
-
-<p class="mt-4 text-gray-400">
-
-Summarize long documents and articles.
-
-</p>
+<p>Fast internet search.</p>
 
 </div>
 
-<div class="glass rounded-3xl p-8">
+<div class="card">
 
-<h3 class="text-2xl font-semibold">
+<i class="fa-solid fa-image"></i>
 
-🌎 Translate
+<h3>Image Search</h3>
 
-</h3>
-
-<p class="mt-4 text-gray-400">
-
-Translate text into multiple languages.
-
-</p>
+<p>Discover high-quality images.</p>
 
 </div>
 
-<div class="glass rounded-3xl p-8">
+<div class="card">
 
-<h3 class="text-2xl font-semibold">
+<i class="fa-solid fa-video"></i>
 
-🧠 AI Tutor
+<h3>Video Search</h3>
 
-</h3>
-
-<p class="mt-4 text-gray-400">
-
-Learn programming and technology.
-
-</p>
+<p>Watch videos from one place.</p>
 
 </div>
-
-<div class="glass rounded-3xl p-8">
-
-<h3 class="text-2xl font-semibold">
-
-📊 Data Analysis
-
-</h3>
-
-<p class="mt-4 text-gray-400">
-
-Analyze CSV, Excel and PDF files.
-
-</p>
-
-</div>
-
-<div class="glass rounded-3xl p-8">
-
-<h3 class="text-2xl font-semibold">
-
-🎨 Creative Writing
-
-</h3>
-
-<p class="mt-4 text-gray-400">
-
-Generate blogs, emails, captions and ideas.
-
-</p>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- Pricing -->
-
-<section class="max-w-7xl mx-auto px-6 pb-24">
-
-<h2 class="text-4xl font-bold text-center mb-14">
-
-Choose Your Plan
-
-</h2>
-
-<div class="grid lg:grid-cols-3 gap-8">
-
-<div class="glass rounded-3xl p-8">
-
-<h3 class="text-3xl font-bold">
-
-Free
-
-</h3>
-
-<p class="mt-4 text-gray-400">
-
-Basic AI access
-
-</p>
-
-<button class="mt-8 w-full bg-slate-700 rounded-xl py-3">
-
-Current Plan
-
-</button>
-
-</div>
-
-<div class="rounded-3xl p-8 gradient">
-
-<h3 class="text-3xl font-bold">
-
-Pro
-
-</h3>
-
-<p class="mt-4">
-
-Unlimited AI + Plugins
-
-</p>
-
-<button class="mt-8 w-full bg-white text-black rounded-xl py-3">
-
-Upgrade
-
-</button>
-
-</div>
-
-<div class="glass rounded-3xl p-8">
-
-<h3 class="text-3xl font-bold">
-
-Enterprise
-
-</h3>
-
-<p class="mt-4 text-gray-400">
-
-For Teams
-
-</p>
-
-<button class="mt-8 w-full bg-slate-700 rounded-xl py-3">
-
-Contact Sales
-
-</button>
-
-</div>
-
-</div>
-
-</section>
-
-<footer class="border-t border-slate-800 py-10 text-center text-gray-500">
-
-© 2026 SearchHub AI Pro
-
-</footer>
-
-</body>
-
-</html>
