@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+<title>News | SearchHub AI</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Inter,sans-serif;
+}
+
+body{
+background:#0b1120;
+color:white;
+}
+
+header{
+
+display:flex;
+justify-content:space-between;
+align-items:center;
+
+padding:20px 40px;
+
+background:#111827;
+
+}
+
+.logo{
+
+font-size:28px;
+font-weight:700;
+
+}
+
+.search{
+
+display:flex;
+width:60%;
+gap:10px;
+
+}
+
+.search input{
+
+flex:1;
+padding:15px;
+
+background:#1f2937;
+
+border:none;
+
+outline:none;
+
+border-radius:12px;
+
+color:white;
+
+font-size:16px;
+
+}
+
+.search button{
+
+padding:15px 25px;
+
+background:#2563eb;
+
+border:none;
+
+border-radius:12px;
+
+color:white;
+
+cursor:pointer;
+
+}
+
+.news{
+
+width:90%;
+
+max-width:1200px;
+
+margin:40px auto;
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+
+gap:25px;
+
+}
+
+.card{
+
+background:#111827;
+
+border-radius:18px;
+
+overflow:hidden;
+
+transition:.3s;
+
+}
+
+.card:hover{
+
+transform:translateY(-6px);
+
+}
+
+.card img{
+
+width:100%;
+
+height:220px;
+
+object-fit:cover;
+
+}
+
+.card h2{
+
+padding:20px;
+
+font-size:22px;
+
+}
+
+.card p{
+
+padding:0 20px 20px;
+
+color:#94a3b8;
+
+line-height:1.7;
+
+}
+
+.card button{
+
+margin:20px;
+
+padding:12px 20px;
+
+border:none;
+
+background:#2563eb;
+
+color:white;
+
+border-radius:10px;
+
+cursor:pointer;
+
+}
+
+footer{
+
+text-align:center;
+
+padding:30px;
+
+color:#94a3b8;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<div class="logo">
+
+📰 SearchHub AI
+
+</div>
+
+<div class="search">
+
+<input
+type="text"
+id="newsInput"
+placeholder="Search News">
+
+<button onclick="searchNews()">
+
+Search
+
+</button>
+
+</div>
+
+</header>
+
+<section class="news">
+
+<div class="card">
+
+<img src="https://picsum.photos/600/400?technology">
+
+<h2>Artificial Intelligence</h2>
+
+<p>
+
+Discover the latest updates in AI,
+Machine Learning and Robotics.
+
+</p>
+
+<button onclick="openNews('Artificial Intelligence')">
+
+Read More
+
+</button>
+
+</div>
+
+<div class="card">
+
+<img src="https://picsum.photos/600/400?space">
+
+<h2>Space Technology</h2>
+
+<p>
+
+NASA and SpaceX continue exploring
+new missions.
+
+</p>
+
+<button onclick="openNews('Space Technology')">
+
+Read More
+
+</button>
+
+</div>
+
+<div class="card">
+
+<img src="https://picsum.photos/600/400?programming">
+
+<h2>Programming</h2>
+
+<p>
+
+Latest programming languages,
+frameworks and developer news.
+
+</p>
+
+<button onclick="openNews('Programming')">
+
+Read More
+
+</button>
+
+</div>
+
+<div class="card">
+
+<img src="https://picsum.photos/600/400?cybersecurity">
+
+<h2>Cyber Security</h2>
+
+<p>
+
+Security updates and ethical hacking
+news.
+
+</p>
+
+<button onclick="openNews('Cyber Security')">
+
+Read More
+
+</button>
+
+</div>
+
+<div class="card">
+
+<img src="https://picsum.photos/600/400?business">
+
+<h2>Business</h2>
+
+<p>
+
+Startup funding, technology companies
+and finance.
+
+</p>
+
+<button onclick="openNews('Business News')">
+
+Read More
+
+</button>
+
+</div>
+
+<div class="card">
+
+<img src="https://picsum.photos/600/400?science">
+
+<h2>Science</h2>
+
+<p>
+
+Research and innovation happening
+around the world.
+
+</p>
+
+<button onclick="openNews('Science News')">
+
+Read More
+
+</button>
+
+</div>
+
+</section>
+
+<footer>
+
+©2026 SearchHub AI
+
+</footer>
+
+<script>
+
+function searchNews(){
+
+let q=document.getElementById("newsInput").value;
+
+if(q==""){
+
+alert("Enter a news topic");
+
+return;
+
+}
+
+window.open(
+
+"https://news.google.com/search?q="+
+encodeURIComponent(q),
+
+"_blank"
+
+);
+
+}
+
+function openNews(topic){
+
+window.open(
+
+"https://news.google.com/search?q="+
+encodeURIComponent(topic),
+
+"_blank"
+
+);
+
+}
+
+</script>
+
+</body>
+</html>
