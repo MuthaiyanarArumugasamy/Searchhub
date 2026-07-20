@@ -1,213 +1,251 @@
-```javascript
-/* ======================================
-   SearchHub - script.js
-====================================== */
+// ===============================
+// SearchHub AI Script
+// ===============================
 
-// Theme Button
-const themeBtn = document.getElementById("themeBtn");
+// Search Function
 
-// Load saved theme
-if(localStorage.getItem("theme") === "dark"){
-    document.body.classList.add("dark");
-    if(themeBtn){
-        themeBtn.textContent = "☀️";
-    }
-}
+function searchNow() {
 
-if(themeBtn){
+    const input = document.getElementById("searchInput");
 
-    themeBtn.addEventListener("click", ()=>{
+    const query = input.value.trim();
 
-        document.body.classList.toggle("dark");
+    if(query===""){
 
-        if(document.body.classList.contains("dark")){
-            localStorage.setItem("theme","dark");
-            themeBtn.textContent="☀️";
-        }else{
-            localStorage.setItem("theme","light");
-            themeBtn.textContent="🌙";
-        }
+        alert("Please enter something to search.");
 
-    });
-
-}
-
-// Fade Animation
-const observer = new IntersectionObserver((entries)=>{
-
-    entries.forEach(entry=>{
-
-        if(entry.isIntersecting){
-
-            entry.target.style.opacity="1";
-            entry.target.style.transform="translateY(0px)";
-
-        }
-
-    });
-
-},{threshold:0.2});
-
-document.querySelectorAll(".card,.hero,.about-short").forEach(el=>{
-
-    el.style.opacity="0";
-    el.style.transform="translateY(40px)";
-    el.style.transition=".8s";
-
-    observer.observe(el);
-
-});
-
-// Smooth Scroll
-document.querySelectorAll('a[href^="#"]').forEach(anchor=>{
-
-    anchor.addEventListener("click",function(e){
-
-        e.preventDefault();
-
-        const target=document.querySelector(this.getAttribute("href"));
-
-        if(target){
-
-            target.scrollIntoView({
-
-                behavior:"smooth"
-
-            });
-
-        }
-
-    });
-
-});
-
-// Keyboard Shortcut
-document.addEventListener("keydown",(e)=>{
-
-    // Press D to toggle theme
-    if(e.key==="d" || e.key==="D"){
-
-        if(themeBtn){
-
-            themeBtn.click();
-
-        }
+        return;
 
     }
 
-});
+    // Save History
 
-// Back To Top Button
-const topBtn=document.createElement("button");
+    saveHistory(query);
 
-topBtn.innerHTML="⬆";
+    // Google Search
 
-topBtn.id="topButton";
-
-document.body.appendChild(topBtn);
-
-topBtn.style.position="fixed";
-topBtn.style.bottom="20px";
-topBtn.style.right="20px";
-topBtn.style.width="45px";
-topBtn.style.height="45px";
-topBtn.style.borderRadius="50%";
-topBtn.style.border="none";
-topBtn.style.background="#2563eb";
-topBtn.style.color="#fff";
-topBtn.style.fontSize="18px";
-topBtn.style.cursor="pointer";
-topBtn.style.display="none";
-topBtn.style.boxShadow="0 5px 15px rgba(0,0,0,.3)";
-topBtn.style.zIndex="999";
-
-window.addEventListener("scroll",()=>{
-
-    if(window.scrollY>400){
-
-        topBtn.style.display="block";
-
-    }else{
-
-        topBtn.style.display="none";
-
-    }
-
-});
-
-topBtn.onclick=()=>{
-
-    window.scrollTo({
-
-        top:0,
-
-        behavior:"smooth"
-
-    });
-
-};
-
-// Console Message
-console.log("%cWelcome to SearchHub","color:#2563eb;font-size:20px;font-weight:bold");
-
-console.log("Powered by Google Programmable Search Engine");
-
-// Current Year (if an element exists)
-const year=document.getElementById("year");
-
-if(year){
-
-    year.textContent=new Date().getFullYear();
+    window.open(
+        "https://www.google.com/search?q="+
+        encodeURIComponent(query),
+        "_blank"
+    );
 
 }
 
-// Page Loaded
-window.addEventListener("load",()=>{
+// Enter Key Search
 
-    document.body.style.opacity="1";
+const input=document.getElementById("searchInput");
 
-});
-```
-import { auth, db } from "./firebase.js";
+if(input){
 
-import {
-collection,
-addDoc,
-serverTimestamp
-}
-from "https://www.gstatic.com/firebasejs/12.0.0/firebase-firestore.js";
+input.addEventListener("keypress",function(e){
 
-window.searchWeb = async function(){
+if(e.key==="Enter"){
 
-const input = document.getElementById("searchInput");
-
-if(!input) return;
-
-const query = input.value.trim();
-
-if(query==""){
-
-alert("Enter search");
-
-return;
+searchNow();
 
 }
-
-if(auth.currentUser){
-
-await addDoc(collection(db,"searchHistory"),{
-
-uid:auth.currentUser.uid,
-
-query:query,
-
-createdAt:serverTimestamp()
 
 });
 
 }
 
-window.location.href =
-"result.html?q="+encodeURIComponent(query);
+// ===============================
+// Search History
+// ===============================
+
+function saveHistory(text){
+
+let history=JSON.parse(localStorage.getItem("history"))||[];
+
+history.unshift(text);
+
+history=history.slice(0,10);
+
+localStorage.setItem("history",JSON.stringify(history));
+
+loadHistory();
 
 }
+
+function loadHistory(){
+
+const list=document.querySelector(".recent ul");
+
+if(!list) return;
+
+list.innerHTML="";
+
+let history=JSON.parse(localStorage.getItem("history"))||[];
+
+history.forEach(item=>{
+
+let li=document.createElement("li");
+
+li.innerHTML=item;
+
+li.onclick=function(){
+
+document.getElementById("searchInput").value=item;
+
+}
+
+list.appendChild(li);
+
+});
+
+}
+
+loadHistory();
+
+// ===============================
+// Theme Toggle
+// ===============================
+
+const themeBtn=document.querySelector(".theme");
+
+themeBtn.onclick=function(){
+
+document.body.classList.toggle("light");
+
+localStorage.setItem(
+
+"theme",
+
+document.body.classList.contains("light")
+
+);
+
+}
+
+if(localStorage.getItem("theme")=="true"){
+
+document.body.classList.add("light");
+
+}
+
+// ===============================
+// Quick Buttons
+// ===============================
+
+document.querySelectorAll(".quick-actions button")
+
+.forEach(btn=>{
+
+btn.onclick=function(){
+
+document.getElementById("searchInput").value=
+
+this.innerText;
+
+searchNow();
+
+}
+
+});
+
+// ===============================
+// New Chat
+// ===============================
+
+document.querySelector(".new-chat").onclick=function(){
+
+document.getElementById("searchInput").value="";
+
+}
+
+// ===============================
+// Sidebar Mobile
+// ===============================
+
+const sidebar=document.querySelector(".sidebar");
+
+const menu=document.createElement("button");
+
+menu.innerHTML="<i class='fa-solid fa-bars'></i>";
+
+menu.className="menuBtn";
+
+document.querySelector("header .left").prepend(menu);
+
+menu.onclick=function(){
+
+sidebar.classList.toggle("active");
+
+}
+
+// ===============================
+// Card Animation
+// ===============================
+
+const cards=document.querySelectorAll(".card");
+
+cards.forEach((card,index)=>{
+
+card.style.opacity="0";
+
+card.style.transform="translateY(50px)";
+
+setTimeout(()=>{
+
+card.style.transition=".5s";
+
+card.style.opacity="1";
+
+card.style.transform="translateY(0)";
+
+},index*120);
+
+});
+
+// ===============================
+// Model Buttons
+// ===============================
+
+document.querySelectorAll(".model button")
+
+.forEach(btn=>{
+
+btn.onclick=function(){
+
+document.getElementById("searchInput").value=
+
+this.parentElement.querySelector("h3").innerText;
+
+searchNow();
+
+}
+
+});
+
+// ===============================
+// Footer Links Hover
+// ===============================
+
+document.querySelectorAll("footer li")
+
+.forEach(item=>{
+
+item.onclick=function(){
+
+alert(this.innerText+" page coming soon.");
+
+}
+
+});
+
+// ===============================
+// Fake AI Greeting
+// ===============================
+
+console.log("SearchHub AI Ready");
+
+// ===============================
+// Welcome Toast
+// ===============================
+
+setTimeout(()=>{
+
+console.log("Welcome to SearchHub AI");
+
+},1000);
