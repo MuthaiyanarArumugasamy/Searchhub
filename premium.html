@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+<title>SearchHub AI Premium</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Inter,sans-serif;
+}
+
+body{
+background:#0b1120;
+color:white;
+}
+
+header{
+padding:20px 50px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:#111827;
+}
+
+.logo{
+font-size:28px;
+font-weight:700;
+}
+
+.hero{
+text-align:center;
+padding:70px 20px;
+}
+
+.hero h1{
+font-size:55px;
+margin-bottom:20px;
+background:linear-gradient(90deg,#60a5fa,#a855f7);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+.hero p{
+color:#94a3b8;
+font-size:18px;
+}
+
+.plans{
+width:90%;
+max-width:1200px;
+margin:60px auto;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+gap:30px;
+}
+
+.plan{
+background:#111827;
+padding:35px;
+border-radius:25px;
+border:2px solid rgba(255,255,255,.08);
+transition:.3s;
+text-align:center;
+}
+
+.plan:hover{
+transform:translateY(-10px);
+border-color:#2563eb;
+}
+
+.price{
+font-size:48px;
+font-weight:800;
+margin:20px 0;
+}
+
+.plan ul{
+list-style:none;
+margin:25px 0;
+text-align:left;
+}
+
+.plan li{
+padding:12px 0;
+color:#cbd5e1;
+}
+
+.plan button{
+width:100%;
+padding:15px;
+border:none;
+border-radius:12px;
+background:#2563eb;
+color:white;
+font-size:17px;
+cursor:pointer;
+margin-top:20px;
+}
+
+.popular{
+border:2px solid gold;
+position:relative;
+}
+
+.tag{
+position:absolute;
+top:-15px;
+right:20px;
+background:gold;
+color:black;
+padding:6px 15px;
+border-radius:30px;
+font-weight:bold;
+}
+
+footer{
+padding:40px;
+text-align:center;
+color:#94a3b8;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<div class="logo">
+💎 SearchHub AI Premium
+</div>
+
+<a href="dashboard.html" style="color:white;text-decoration:none;">
+Dashboard
+</a>
+
+</header>
+
+<section class="hero">
+
+<h1>Upgrade to Premium</h1>
+
+<p>Unlock unlimited AI features and advanced search tools.</p>
+
+</section>
+
+<section class="plans">
+
+<div class="plan">
+
+<h2>Free</h2>
+
+<div class="price">₹0</div>
+
+<ul>
+
+<li>✔ Basic Search</li>
+
+<li>✔ AI Chat (Limited)</li>
+
+<li>✔ Search History</li>
+
+<li>✔ Image Search</li>
+
+<li>✖ Premium AI</li>
+
+<li>✖ Unlimited Usage</li>
+
+</ul>
+
+<button onclick="alert('Current Plan')">
+
+Current Plan
+
+</button>
+
+</div>
+
+<div class="plan popular">
+
+<div class="tag">
+
+POPULAR
+
+</div>
+
+<h2>Pro</h2>
+
+<div class="price">
+
+₹199<span style="font-size:18px;">/month</span>
+
+</div>
+
+<ul>
+
+<li>✔ Unlimited AI Chat</li>
+
+<li>✔ AI Image Generation</li>
+
+<li>✔ Faster Search</li>
+
+<li>✔ Cloud Library</li>
+
+<li>✔ Priority Support</li>
+
+<li>✔ No Limits</li>
+
+</ul>
+
+<button onclick="buyPlan('Pro')">
+
+Upgrade Now
+
+</button>
+
+</div>
+
+<div class="plan">
+
+<h2>Enterprise</h2>
+
+<div class="price">
+
+₹999<span style="font-size:18px;">/month</span>
+
+</div>
+
+<ul>
+
+<li>✔ Team Workspace</li>
+
+<li>✔ AI API Access</li>
+
+<li>✔ Admin Dashboard</li>
+
+<li>✔ Analytics</li>
+
+<li>✔ Custom Branding</li>
+
+<li>✔ Dedicated Support</li>
+
+</ul>
+
+<button onclick="buyPlan('Enterprise')">
+
+Contact Sales
+
+</button>
+
+</div>
+
+</section>
+
+<footer>
+
+©2026 SearchHub AI
+
+</footer>
+
+<script>
+
+function buyPlan(plan){
+
+alert("Selected Plan: "+plan);
+
+// Later integrate Razorpay or Stripe here
+
+}
+
+</script>
+
+</body>
+</html>
