@@ -1,276 +1,592 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SearchHub Dashboard</title>
 
-<style>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial,sans-serif;
-}
+<title>Dashboard - SearchHub AI</title>
 
-body{
-display:flex;
-background:#f5f7fb;
-}
+<link rel="preconnect" href="https://fonts.googleapis.com">
 
-.sidebar{
-width:260px;
-height:100vh;
-background:#0f172a;
-color:white;
-padding:25px;
-position:fixed;
-}
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-.logo{
-font-size:28px;
-font-weight:bold;
-margin-bottom:40px;
-}
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-.sidebar a{
-display:block;
-padding:15px;
-margin:8px 0;
-color:white;
-text-decoration:none;
-border-radius:10px;
-transition:.3s;
-}
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
-.sidebar a:hover{
-background:#2563eb;
-}
-
-.main{
-margin-left:260px;
-width:100%;
-padding:30px;
-}
-
-.topbar{
-display:flex;
-justify-content:space-between;
-align-items:center;
-margin-bottom:30px;
-}
-
-.user{
-background:white;
-padding:10px 20px;
-border-radius:12px;
-box-shadow:0 5px 15px rgba(0,0,0,.1);
-}
-
-.cards{
-display:grid;
-grid-template-columns:repeat(4,1fr);
-gap:20px;
-margin-bottom:30px;
-}
-
-.card{
-background:white;
-padding:25px;
-border-radius:18px;
-box-shadow:0 5px 15px rgba(0,0,0,.1);
-}
-
-.card h2{
-color:#2563eb;
-margin-bottom:10px;
-}
-
-.section{
-background:white;
-padding:25px;
-border-radius:18px;
-margin-top:20px;
-box-shadow:0 5px 15px rgba(0,0,0,.1);
-}
-
-button{
-padding:12px 20px;
-background:#2563eb;
-color:white;
-border:none;
-border-radius:10px;
-cursor:pointer;
-}
-
-button:hover{
-background:#1d4ed8;
-}
-
-</style>
+<link rel="stylesheet" href="style.css">
 
 </head>
 
 <body>
 
-<div class="sidebar">
+<div class="dashboard">
+
+<!-- Sidebar -->
+
+<aside class="sidebar">
 
 <div class="logo">
-🚀 SearchHub
-</div>
 
-<a href="#">🏠 Dashboard</a>
+<div class="logo-icon">
 
-<a href="#">🔍 Search History</a>
-
-<a href="#">📁 My Projects</a>
-
-<a href="#">📚 Library</a>
-
-<a href="#">🧩 Plugins</a>
-
-<a href="#">💳 Subscription</a>
-
-<a href="#">⚙ Settings</a>
-
-<a href="#" id="logoutBtn">🚪 Logout</a>
+<i class="fa-solid fa-brain"></i>
 
 </div>
 
-<div class="main">
+<div>
 
-<div class="topbar">
+<h2>SearchHub AI</h2>
 
-<h1>Dashboard</h1>
-
-<div class="user">
-
-<span id="username">Loading...</span>
+<p>Dashboard</p>
 
 </div>
 
 </div>
 
-<div class="cards">
+<button class="new-chat">
+
+<i class="fa-solid fa-plus"></i>
+
+New Chat
+
+</button>
+
+<nav>
+
+<a class="active">
+
+<i class="fa-solid fa-house"></i>
+
+Dashboard
+
+</a>
+
+<a>
+
+<i class="fa-solid fa-comments"></i>
+
+AI Chat
+
+</a>
+
+<a>
+
+<i class="fa-solid fa-globe"></i>
+
+Web Search
+
+</a>
+
+<a>
+
+<i class="fa-solid fa-image"></i>
+
+Images
+
+</a>
+
+<a>
+
+<i class="fa-solid fa-video"></i>
+
+Videos
+
+</a>
+
+<a>
+
+<i class="fa-solid fa-book"></i>
+
+Library
+
+</a>
+
+<a>
+
+<i class="fa-solid fa-clock"></i>
+
+History
+
+</a>
+
+<a>
+
+<i class="fa-solid fa-gear"></i>
+
+Settings
+
+</a>
+
+</nav>
+
+<div class="profile">
+
+<div class="avatar">
+
+A
+
+</div>
+
+<div>
+
+<h3 id="username">Welcome</h3>
+
+<p>Free Plan</p>
+
+</div>
+
+</div>
+
+</aside>
+
+<!-- Main -->
+
+<main class="main">
+
+<header>
+
+<div class="left">
+
+<h2>Dashboard</h2>
+
+</div>
+
+<div class="right">
+
+<button class="theme">
+
+<i class="fa-solid fa-moon"></i>
+
+</button>
+
+<button class="login">
+
+Upgrade
+
+</button>
+
+</div>
+
+</header>
+
+<section class="hero">
+
+<h1>
+
+Welcome to SearchHub AI
+
+</h1>
+
+<p>
+
+Search everything faster using AI.
+
+</p>
+
+<div class="search-box">
+
+<button>
+
+<i class="fa-solid fa-plus"></i>
+
+</button>
+
+<input
+
+type="text"
+
+id="searchInput"
+
+placeholder="Search the web or ask AI...">
+
+<button onclick="searchNow()">
+
+<i class="fa-solid fa-paper-plane"></i>
+
+</button>
+
+</div>
+
+</section>
+
+<!-- Dashboard Cards -->
+
+<section class="cards">
 
 <div class="card">
-<h2>Searches</h2>
+
+<i class="fa-solid fa-magnifying-glass"></i>
+
+<h3>Total Searches</h3>
+
+<h1 id="searchCount">0</h1>
+
+</div>
+
+<div class="card">
+
+<i class="fa-solid fa-clock"></i>
+
+<h3>History</h3>
+
+<h1 id="historyCount">0</h1>
+
+</div>
+
+<div class="card">
+
+<i class="fa-solid fa-book"></i>
+
+<h3>Saved</h3>
+
 <h1>0</h1>
+
 </div>
 
 <div class="card">
-<h2>Projects</h2>
+
+<i class="fa-solid fa-robot"></i>
+
+<h3>AI Chats</h3>
+
 <h1>0</h1>
+
+</div>
+
+</section>
+
+<!-- Quick Actions -->
+
+<section class="trending">
+
+<h2>Quick Actions</h2>
+
+<div class="trend-grid">
+
+<div class="trend-card">
+
+<i class="fa-solid fa-globe"></i>
+
+<h3>Web Search</h3>
+
+<p>Search the internet instantly.</p>
+
+<button>Open</button>
+
+</div>
+
+<div class="trend-card">
+
+<i class="fa-solid fa-comments"></i>
+
+<h3>AI Chat</h3>
+
+<p>Ask questions using AI.</p>
+
+<button>Start</button>
+
+</div>
+
+<div class="trend-card">
+
+<i class="fa-solid fa-image"></i>
+
+<h3>Image Search</h3>
+
+<p>Find beautiful images.</p>
+
+<button>Browse</button>
+
+</div>
+
+<div class="trend-card">
+
+<i class="fa-solid fa-video"></i>
+
+<h3>Video Search</h3>
+
+<p>Watch videos instantly.</p>
+
+<button>Watch</button>
+
+</div>
+
+</div>
+
+</section>
+<!-- ================= Analytics ================= -->
+
+<section class="models">
+
+<h2>Analytics</h2>
+
+<div class="model-grid">
+
+<div class="model">
+
+<i class="fa-solid fa-chart-line"></i>
+
+<h3>Today's Searches</h3>
+
+<p>128 Searches</p>
+
+<button>View Report</button>
+
+</div>
+
+<div class="model">
+
+<i class="fa-solid fa-fire"></i>
+
+<h3>Trending Topic</h3>
+
+<p>Artificial Intelligence</p>
+
+<button>Explore</button>
+
+</div>
+
+<div class="model">
+
+<i class="fa-solid fa-clock-rotate-left"></i>
+
+<h3>Recent Activity</h3>
+
+<p>Last Search: HTML Tutorial</p>
+
+<button>History</button>
+
+</div>
+
+<div class="model">
+
+<i class="fa-solid fa-user"></i>
+
+<h3>Profile</h3>
+
+<p>Manage your account</p>
+
+<button>Open</button>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ================= Recent Searches ================= -->
+
+<section class="trending">
+
+<h2>Recent Searches</h2>
+
+<div class="trend-grid">
+
+<div class="trend-card">
+
+<h3>Python Tutorial</h3>
+
+<p>Programming Language</p>
+
+</div>
+
+<div class="trend-card">
+
+<h3>Latest AI News</h3>
+
+<p>Technology</p>
+
+</div>
+
+<div class="trend-card">
+
+<h3>HTML CSS Course</h3>
+
+<p>Frontend Development</p>
+
+</div>
+
+<div class="trend-card">
+
+<h3>Java Interview Questions</h3>
+
+<p>Placement Preparation</p>
+
+</div>
+
+<div class="trend-card">
+
+<h3>React JS</h3>
+
+<p>JavaScript Library</p>
+
+</div>
+
+<div class="trend-card">
+
+<h3>Firebase Hosting</h3>
+
+<p>Deploy Website</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ================= AI Suggestions ================= -->
+
+<section class="cards">
+
+<div class="card">
+
+<i class="fa-solid fa-lightbulb"></i>
+
+<h3>Suggested Prompt</h3>
+
+<p>Explain Artificial Intelligence with examples.</p>
+
 </div>
 
 <div class="card">
-<h2>Plugins</h2>
-<h1>0</h1>
+
+<i class="fa-solid fa-code"></i>
+
+<h3>Generate Code</h3>
+
+<p>Create HTML CSS JavaScript projects.</p>
+
 </div>
 
 <div class="card">
-<h2>Plan</h2>
-<h1 id="plan">Free</h1>
-</div>
+
+<i class="fa-solid fa-graduation-cap"></i>
+
+<h3>Study Assistant</h3>
+
+<p>Prepare for exams using AI.</p>
 
 </div>
 
-<div class="section">
+<div class="card">
 
-<h2>User Profile</h2>
+<i class="fa-solid fa-language"></i>
 
-<br>
+<h3>Translate</h3>
 
-<p><b>Name:</b> <span id="name">Loading...</span></p>
-
-<p><b>Email:</b> <span id="email">Loading...</span></p>
+<p>Translate text into multiple languages.</p>
 
 </div>
 
-<div class="section">
+</section>
 
-<h2>Recent Activity</h2>
+<!-- ================= Footer ================= -->
 
-<br>
+<footer>
+
+<div class="footer-content">
+
+<div>
+
+<h2>SearchHub AI</h2>
+
+<p>Professional AI Search Platform</p>
+
+</div>
+
+<div>
+
+<h4>Company</h4>
 
 <ul>
 
-<li>Welcome to SearchHub 🎉</li>
+<li>About</li>
 
-<li>Create your first project.</li>
+<li>Contact</li>
 
-<li>Install plugins.</li>
+<li>Privacy Policy</li>
 
-<li>Upgrade to Pro anytime.</li>
+<li>Terms & Conditions</li>
 
 </ul>
 
 </div>
 
+<div>
+
+<h4>Products</h4>
+
+<ul>
+
+<li>AI Chat</li>
+
+<li>Search</li>
+
+<li>Images</li>
+
+<li>Videos</li>
+
+</ul>
+
 </div>
 
-<script type="module">
+<div>
 
-import { auth, db } from "./firebase.js";
+<h4>Social</h4>
 
-import {
+<div class="social">
 
-onAuthStateChanged,
+<i class="fab fa-facebook"></i>
 
-signOut
+<i class="fab fa-instagram"></i>
 
-}
+<i class="fab fa-github"></i>
 
-from "https://www.gstatic.com/firebasejs/12.0.0/firebase-auth.js";
+<i class="fab fa-linkedin"></i>
 
-import {
+</div>
 
-doc,
+</div>
 
-getDoc
+</div>
 
-}
+<p class="copyright">
 
-from "https://www.gstatic.com/firebasejs/12.0.0/firebase-firestore.js";
+© 2026 SearchHub AI. All Rights Reserved.
 
-onAuthStateChanged(auth, async(user)=>{
+</p>
+
+</footer>
+
+</main>
+
+</div>
+
+<script src="script.js"></script>
+
+<script>
+
+const user=localStorage.getItem("user");
 
 if(user){
 
-const snap=await getDoc(doc(db,"users",user.uid));
-
-if(snap.exists()){
-
-const data=snap.data();
-
-document.getElementById("username").innerHTML=data.name;
-
-document.getElementById("name").innerHTML=data.name;
-
-document.getElementById("email").innerHTML=data.email;
-
-document.getElementById("plan").innerHTML=data.plan;
+document.getElementById("username").innerHTML=user;
 
 }
 
-}else{
+let history=JSON.parse(localStorage.getItem("history"))||[];
 
-window.location="login.html";
+document.getElementById("historyCount").innerHTML=history.length;
 
-}
-
-});
-
-document.getElementById("logoutBtn").onclick=async()=>{
-
-await signOut(auth);
-
-window.location="login.html";
-
-}
+document.getElementById("searchCount").innerHTML=history.length;
 
 </script>
 
 </body>
+
 </html>
