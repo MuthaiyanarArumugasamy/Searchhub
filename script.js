@@ -249,3 +249,46 @@ setTimeout(()=>{
 console.log("Welcome to SearchHub AI");
 
 },1000);
+const API_KEY = "YOUR_NEW_API_KEY";
+
+document.getElementById("sendBtn").addEventListener("click", askAI);
+
+async function askAI(){
+
+const prompt=document.getElementById("prompt").value;
+
+const responseBox=document.getElementById("response");
+
+responseBox.innerHTML="Thinking...";
+
+try{
+
+const res=await fetch(
+`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${API_KEY}`,
+{
+method:"POST",
+headers:{
+"Content-Type":"application/json"
+},
+body:JSON.stringify({
+contents:[
+{
+parts:[
+{text:prompt}
+]
+}
+]
+})
+});
+
+const data=await res.json();
+
+responseBox.innerHTML=data.candidates[0].content.parts[0].text;
+
+}catch(e){
+
+responseBox.innerHTML="Error : "+e.message;
+
+}
+
+}
