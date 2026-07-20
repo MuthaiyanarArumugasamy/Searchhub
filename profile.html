@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Profile | SearchHub AI</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Inter,sans-serif;
+}
+
+body{
+background:#0b1120;
+color:#fff;
+}
+
+header{
+background:#111827;
+padding:20px 40px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.logo{
+font-size:28px;
+font-weight:700;
+}
+
+.container{
+width:90%;
+max-width:1200px;
+margin:40px auto;
+display:grid;
+grid-template-columns:320px 1fr;
+gap:30px;
+}
+
+.left{
+
+background:#111827;
+border-radius:20px;
+padding:30px;
+text-align:center;
+
+}
+
+.avatar{
+
+width:140px;
+height:140px;
+margin:auto;
+border-radius:50%;
+background:linear-gradient(135deg,#2563eb,#4f46e5);
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:60px;
+font-weight:bold;
+
+}
+
+.left h2{
+
+margin-top:20px;
+
+}
+
+.left p{
+
+margin-top:8px;
+color:#94a3b8;
+
+}
+
+.badge{
+
+display:inline-block;
+margin-top:20px;
+padding:10px 18px;
+background:#2563eb;
+border-radius:30px;
+
+}
+
+.stats{
+
+margin-top:30px;
+text-align:left;
+
+}
+
+.stats div{
+
+display:flex;
+justify-content:space-between;
+padding:12px 0;
+border-bottom:1px solid rgba(255,255,255,.06);
+
+}
+
+.right{
+
+background:#111827;
+padding:30px;
+border-radius:20px;
+
+}
+
+.right h2{
+
+margin-bottom:25px;
+
+}
+
+.field{
+
+margin-bottom:20px;
+
+}
+
+.field label{
+
+display:block;
+margin-bottom:8px;
+
+}
+
+.field input{
+
+width:100%;
+padding:15px;
+background:#1f2937;
+border:none;
+outline:none;
+color:white;
+border-radius:12px;
+
+}
+
+.save{
+
+padding:15px 30px;
+background:#2563eb;
+border:none;
+border-radius:12px;
+color:white;
+cursor:pointer;
+font-size:16px;
+
+}
+
+.save:hover{
+
+background:#1d4ed8;
+
+}
+
+@media(max-width:900px){
+
+.container{
+
+grid-template-columns:1fr;
+
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<div class="logo">
+
+👤 SearchHub AI
+
+</div>
+
+<a href="dashboard.html" style="color:white;text-decoration:none;">
+
+Dashboard
+
+</a>
+
+</header>
+
+<div class="container">
+
+<div class="left">
+
+<div class="avatar" id="avatar">
+
+A
+
+</div>
+
+<h2 id="username">
+
+User
+
+</h2>
+
+<p>
+
+SearchHub Member
+
+</p>
+
+<div class="badge">
+
+⭐ Free Plan
+
+</div>
+
+<div class="stats">
+
+<div>
+
+<span>Searches</span>
+
+<b id="searches">
+
+0
+
+</b>
+
+</div>
+
+<div>
+
+<span>Saved</span>
+
+<b id="saved">
+
+0
+
+</b>
+
+</div>
+
+<div>
+
+<span>History</span>
+
+<b id="history">
+
+0
+
+</b>
+
+</div>
+
+<div>
+
+<span>AI Chats</span>
+
+<b>
+
+0
+
+</b>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="right">
+
+<h2>
+
+Profile Settings
+
+</h2>
+
+<div class="field">
+
+<label>Full Name</label>
+
+<input id="name">
+
+</div>
+
+<div class="field">
+
+<label>Email</label>
+
+<input id="email">
+
+</div>
+
+<div class="field">
+
+<label>Country</label>
+
+<input placeholder="India">
+
+</div>
+
+<div class="field">
+
+<label>Profession</label>
+
+<input placeholder="Student">
+
+</div>
+
+<button class="save" onclick="saveProfile()">
+
+Save Changes
+
+</button>
+
+</div>
+
+</div>
+
+<script>
+
+let user=localStorage.getItem("user")||"Guest";
+
+document.getElementById("username").innerHTML=user;
+
+document.getElementById("name").value=user;
+
+document.getElementById("avatar").innerHTML=user.charAt(0).toUpperCase();
+
+let history=JSON.parse(localStorage.getItem("history"))||[];
+
+document.getElementById("history").innerHTML=history.length;
+
+document.getElementById("searches").innerHTML=history.length;
+
+let library=JSON.parse(localStorage.getItem("library"))||[];
+
+document.getElementById("saved").innerHTML=library.length;
+
+function saveProfile(){
+
+localStorage.setItem("user",
+
+document.getElementById("name").value);
+
+alert("Profile Updated Successfully");
+
+}
+
+</script>
+
+</body>
+
+</html>
