@@ -1,56 +1,81 @@
-// Firebase SDK
-import { initializeApp } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-app.js";
+// Firebase Configuration
 
-import { getAuth } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-auth.js";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-app.js";
 
-import { getFirestore } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-firestore.js";
+import {
+getAuth,
+createUserWithEmailAndPassword,
+signInWithEmailAndPassword,
+GoogleAuthProvider,
+signInWithPopup,
+signOut,
+onAuthStateChanged
+}
 
-const firebaseConfig = {
+from "https://www.gstatic.com/firebasejs/12.6.0/firebase-auth.js";
 
-  apiKey: "YOUR_API_KEY",
+import {
 
-  authDomain: "YOUR_PROJECT.firebaseapp.com",
+getFirestore
 
-  projectId: "YOUR_PROJECT_ID",
+}
 
-  storageBucket: "YOUR_PROJECT.firebasestorage.app",
+from "https://www.gstatic.com/firebasejs/12.6.0/firebase-firestore.js";
 
-  messagingSenderId: "YOUR_SENDER_ID",
+const firebaseConfig={
 
-  appId: "YOUR_APP_ID"
+apiKey:"YOUR_API_KEY",
 
-};
+authDomain:"YOUR_PROJECT.firebaseapp.com",
 
-const app = initializeApp(firebaseConfig);
+projectId:"YOUR_PROJECT",
 
-export const auth = getAuth(app);
+storageBucket:"YOUR_PROJECT.appspot.com",
 
-export const db = getFirestore(app);
-// Firebase SDK
-import { initializeApp } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-app.js";
+messagingSenderId:"YOUR_SENDER_ID",
 
-import { getAuth } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-auth.js";
-
-import { getFirestore } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-firestore.js";
-
-const firebaseConfig = {
-
-  apiKey: "YOUR_API_KEY",
-
-  authDomain: "YOUR_PROJECT.firebaseapp.com",
-
-  projectId: "YOUR_PROJECT_ID",
-
-  storageBucket: "YOUR_PROJECT.firebasestorage.app",
-
-  messagingSenderId: "YOUR_SENDER_ID",
-
-  appId: "YOUR_APP_ID"
+appId:"YOUR_APP_ID"
 
 };
 
-const app = initializeApp(firebaseConfig);
+const app=initializeApp(firebaseConfig);
 
-export const auth = getAuth(app);
+export const auth=getAuth(app);
 
-export const db = getFirestore(app);
+export const db=getFirestore(app);
+
+const provider=new GoogleAuthProvider();
+
+export function signup(email,password){
+
+return createUserWithEmailAndPassword(auth,email,password);
+
+}
+
+export function login(email,password){
+
+return signInWithEmailAndPassword(auth,email,password);
+
+}
+
+export function googleLogin(){
+
+return signInWithPopup(auth,provider);
+
+}
+
+export function logout(){
+
+return signOut(auth);
+
+}
+
+export function checkUser(callback){
+
+onAuthStateChanged(auth,user=>{
+
+callback(user);
+
+});
+
+}
