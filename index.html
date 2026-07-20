@@ -2,124 +2,125 @@
 <html lang="en">
 
 <head>
-
 <meta charset="UTF-8">
-
-<meta name="viewport"
-content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>SearchHub AI</title>
 
-<link rel="stylesheet" href="style.css">
+<meta name="description" content="SearchHub AI - Smart AI Search Engine">
 
-<link rel="preconnect"
-href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link rel="preconnect"
-href="https://fonts.gstatic.com"
-crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
-rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 <link rel="stylesheet"
 href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+<link rel="stylesheet" href="style.css">
 
 </head>
 
 <body>
 
-<div class="container">
+<div class="app">
 
-<!-- Sidebar -->
+<!-- ================= Sidebar ================= -->
 
 <aside class="sidebar">
 
 <div class="logo">
 
-<div class="logoIcon">
-
+<div class="logo-icon">
 <i class="fa-solid fa-brain"></i>
-
 </div>
 
 <div>
-
 <h2>SearchHub AI</h2>
-
-<p>Search Smarter</p>
-
+<p>Powered by AI</p>
 </div>
 
 </div>
 
-<div class="topButtons">
+<button class="new-chat">
 
-<button class="newChat">
+<i class="fa-solid fa-plus"></i>
 
-<i class="fa-solid fa-pen"></i>
-
-New Chat
+<span>New Chat</span>
 
 </button>
 
-</div>
-
 <nav>
 
-<a href="#" class="active">
+<a class="active">
 
 <i class="fa-solid fa-comments"></i>
 
-AI Chat
+<span>AI Chat</span>
 
 </a>
 
-<a href="#">
+<a>
 
 <i class="fa-solid fa-globe"></i>
 
-Web Search
+<span>Web Search</span>
 
 </a>
 
-<a href="#">
+<a>
 
 <i class="fa-solid fa-image"></i>
 
-Images
+<span>Images</span>
 
 </a>
 
-<a href="#">
+<a>
 
 <i class="fa-solid fa-video"></i>
 
-Videos
+<span>Videos</span>
 
 </a>
 
-<a href="#">
+<a>
+
+<i class="fa-solid fa-file"></i>
+
+<span>Documents</span>
+
+</a>
+
+<a>
 
 <i class="fa-solid fa-book"></i>
 
-Library
+<span>Library</span>
 
 </a>
 
-<a href="#">
+<a>
 
-<i class="fa-solid fa-clock"></i>
+<i class="fa-solid fa-clock-rotate-left"></i>
 
-History
+<span>History</span>
 
 </a>
 
-<a href="#">
+<a>
+
+<i class="fa-solid fa-star"></i>
+
+<span>Favorites</span>
+
+</a>
+
+<a>
 
 <i class="fa-solid fa-gear"></i>
 
-Settings
+<span>Settings</span>
 
 </a>
 
@@ -127,19 +128,19 @@ Settings
 
 <div class="recent">
 
-<h4>Recent</h4>
+<h4>Recent Chats</h4>
 
 <ul>
 
-<li>What is AI?</li>
+<li>HTML Tutorial</li>
 
-<li>Python Tutorial</li>
+<li>Python Project</li>
 
-<li>HTML Course</li>
+<li>Java Interview</li>
 
-<li>JavaScript Guide</li>
+<li>AI News</li>
 
-<li>Latest AI News</li>
+<li>Web Development</li>
 
 </ul>
 
@@ -148,16 +149,14 @@ Settings
 <div class="profile">
 
 <div class="avatar">
-
 A
-
 </div>
 
 <div>
 
 <h3>Anupriya</h3>
 
-<span>Free Plan</span>
+<p>Free Plan</p>
 
 </div>
 
@@ -165,29 +164,29 @@ A
 
 </aside>
 
-<!-- Main -->
+<!-- ================= Main ================= -->
 
 <main class="main">
 
 <header>
 
-<div class="title">
+<div class="left">
 
-SearchHub AI
+<h2>SearchHub AI</h2>
 
 </div>
 
 <div class="right">
 
-<button>
+<button class="theme">
 
 <i class="fa-solid fa-moon"></i>
 
 </button>
 
-<button class="upgrade">
+<button class="login">
 
-Upgrade
+Login
 
 </button>
 
@@ -199,17 +198,17 @@ Upgrade
 
 <h1>
 
-Ready when you are.
+How can I help you today?
 
 </h1>
 
 <p>
 
-Search the web, ask AI and find everything from one place.
+Search anything, ask AI, generate ideas, find images, videos and documents.
 
 </p>
 
-<div class="search">
+<div class="search-box">
 
 <button>
 
@@ -218,75 +217,74 @@ Search the web, ask AI and find everything from one place.
 </button>
 
 <input
-
 type="text"
-
 id="searchInput"
-
 placeholder="Ask anything or search the web...">
 
-<button onclick="searchNow()">
+<button id="searchBtn">
 
-<i class="fa-solid fa-magnifying-glass"></i>
+<i class="fa-solid fa-paper-plane"></i>
 
 </button>
 
 </div>
 
-<div class="chips">
+<div class="quick-actions">
 
-<button>
+<button>🌍 Web</button>
 
-🌍 Web Search
+<button>🤖 AI</button>
 
-</button>
+<button>🖼 Images</button>
 
-<button>
+<button>🎥 Videos</button>
 
-🤖 AI Chat
+<button>📄 PDF</button>
 
-</button>
-
-<button>
-
-🖼 Images
-
-</button>
-
-<button>
-
-🎥 Videos
-
-</button>
-
-<button>
-
-📚 Library
-
-</button>
-
-<button>
-
-🕘 History
-
-</button>
+<button>💻 Code</button>
 
 </div>
 
 </section>
 
-<footer>
+<section class="cards">
 
-SearchHub AI ©2026
+<div class="card">
 
-</footer>
+<i class="fa-solid fa-robot"></i>
 
-</main>
+<h3>AI Assistant</h3>
+
+<p>Chat with AI instantly.</p>
 
 </div>
 
-<script src="script.js"></script>
+<div class="card">
 
-</body>
+<i class="fa-solid fa-globe"></i>
 
-</html>
+<h3>Web Search</h3>
+
+<p>Fast internet search.</p>
+
+</div>
+
+<div class="card">
+
+<i class="fa-solid fa-image"></i>
+
+<h3>Image Search</h3>
+
+<p>Discover high-quality images.</p>
+
+</div>
+
+<div class="card">
+
+<i class="fa-solid fa-video"></i>
+
+<h3>Video Search</h3>
+
+<p>Watch videos from one place.</p>
+
+</div>
