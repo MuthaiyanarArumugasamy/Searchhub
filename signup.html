@@ -1,9 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SearchHub - Sign Up</title>
+
+<title>Create Account | SearchHub AI</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
 <style>
 
@@ -11,102 +24,172 @@
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:Arial,sans-serif;
+font-family:'Inter',sans-serif;
 }
 
 body{
 
-background:linear-gradient(135deg,#0f172a,#2563eb);
+height:100vh;
 
 display:flex;
+
 justify-content:center;
+
 align-items:center;
 
-height:100vh;
+background:#0b1120;
+
+color:white;
 
 }
 
-.card{
+.container{
 
-width:400px;
+width:430px;
 
-background:white;
+background:#111827;
 
 padding:40px;
 
-border-radius:20px;
+border-radius:22px;
 
-box-shadow:0 20px 40px rgba(0,0,0,.3);
+border:1px solid rgba(255,255,255,.08);
+
+box-shadow:0 20px 45px rgba(0,0,0,.4);
 
 }
 
-h1{
+.logo{
 
 text-align:center;
 
 margin-bottom:30px;
 
-color:#2563eb;
+}
+
+.logo i{
+
+font-size:55px;
+
+color:#3b82f6;
+
+margin-bottom:15px;
 
 }
 
-input{
+.logo h1{
+
+font-size:30px;
+
+}
+
+.logo p{
+
+color:#94a3b8;
+
+margin-top:10px;
+
+}
+
+.input{
+
+margin-top:18px;
+
+}
+
+.input label{
+
+display:block;
+
+margin-bottom:8px;
+
+font-size:15px;
+
+}
+
+.input input{
 
 width:100%;
 
 padding:15px;
-
-margin:10px 0;
-
-border-radius:10px;
-
-border:1px solid #ddd;
-
-font-size:16px;
-
-}
-
-button{
-
-width:100%;
-
-padding:15px;
-
-background:#2563eb;
-
-color:white;
 
 border:none;
 
-border-radius:10px;
+outline:none;
 
-font-size:18px;
+background:#1f2937;
+
+color:white;
+
+border-radius:12px;
+
+font-size:15px;
+
+}
+
+.signup{
+
+width:100%;
+
+padding:16px;
+
+margin-top:25px;
+
+background:linear-gradient(135deg,#2563eb,#4f46e5);
+
+border:none;
+
+border-radius:12px;
+
+font-size:17px;
+
+color:white;
 
 cursor:pointer;
 
-margin-top:20px;
+}
+
+.signup:hover{
+
+opacity:.9;
 
 }
 
-button:hover{
+.google{
 
-background:#1d4ed8;
+width:100%;
+
+padding:15px;
+
+margin-top:15px;
+
+background:#1f2937;
+
+border:none;
+
+color:white;
+
+border-radius:12px;
+
+cursor:pointer;
 
 }
 
-a{
-
-text-decoration:none;
-
-color:#2563eb;
-
-}
-
-p{
+.bottom{
 
 margin-top:20px;
 
 text-align:center;
+
+color:#94a3b8;
+
+}
+
+.bottom a{
+
+color:#60a5fa;
+
+text-decoration:none;
 
 }
 
@@ -116,21 +199,77 @@ text-align:center;
 
 <body>
 
-<div class="card">
+<div class="container">
 
-<h1>Create Account</h1>
+<div class="logo">
 
-<input id="name" placeholder="Full Name">
+<i class="fa-solid fa-brain"></i>
 
-<input id="email" type="email" placeholder="Email">
+<h1>SearchHub AI</h1>
 
-<input id="password" type="password" placeholder="Password">
+<p>Create your free account</p>
 
-<button id="signupBtn">
+</div>
+
+<div class="input">
+
+<label>Full Name</label>
+
+<input
+type="text"
+id="name"
+placeholder="Your Name">
+
+</div>
+
+<div class="input">
+
+<label>Email</label>
+
+<input
+type="email"
+id="email"
+placeholder="Email Address">
+
+</div>
+
+<div class="input">
+
+<label>Password</label>
+
+<input
+type="password"
+id="password"
+placeholder="Create Password">
+
+</div>
+
+<div class="input">
+
+<label>Confirm Password</label>
+
+<input
+type="password"
+id="confirm"
+placeholder="Confirm Password">
+
+</div>
+
+<button class="signup" onclick="signup()">
+
 Create Account
+
 </button>
 
-<p>
+<button class="google">
+
+<i class="fa-brands fa-google"></i>
+
+Continue with Google
+
+</button>
+
+<div class="bottom">
 
 Already have an account?
 
@@ -140,83 +279,46 @@ Login
 
 </a>
 
-</p>
+</div>
 
 </div>
 
-<script type="module">
+<script>
 
-import { auth, db } from "./firebase.js";
+function signup(){
 
-import {
+let name=document.getElementById("name").value;
 
-createUserWithEmailAndPassword
+let email=document.getElementById("email").value;
 
-}
+let pass=document.getElementById("password").value;
 
-from "https://www.gstatic.com/firebasejs/12.0.0/firebase-auth.js";
+let confirm=document.getElementById("confirm").value;
 
-import {
+if(name==""||email==""||pass==""||confirm==""){
 
-doc,
-
-setDoc,
-
-serverTimestamp
-
-}
-
-from "https://www.gstatic.com/firebasejs/12.0.0/firebase-firestore.js";
-
-document.getElementById("signupBtn").onclick = async ()=>{
-
-const name=document.getElementById("name").value.trim();
-
-const email=document.getElementById("email").value.trim();
-
-const password=document.getElementById("password").value;
-
-if(!name || !email || !password){
-
-alert("Please fill all fields");
+alert("Fill all fields");
 
 return;
 
 }
 
-try{
+if(pass!=confirm){
 
-const userCredential=
+alert("Passwords do not match");
 
-await createUserWithEmailAndPassword(auth,email,password);
-
-await setDoc(doc(db,"users",userCredential.user.uid),{
-
-name:name,
-
-email:email,
-
-plan:"Free",
-
-createdAt:serverTimestamp()
-
-});
-
-alert("Account created successfully!");
-
-window.location.href="dashboard.html";
+return;
 
 }
 
-catch(error){
+localStorage.setItem("user",name);
 
-alert(error.message);
-
-}
+window.location="dashboard.html";
 
 }
 
 </script>
 
 </body>
+
 </html>
