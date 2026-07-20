@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Settings | SearchHub AI</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Inter,sans-serif;
+}
+
+body{
+background:#0b1120;
+color:white;
+}
+
+header{
+background:#111827;
+padding:20px 40px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.logo{
+font-size:28px;
+font-weight:700;
+}
+
+.container{
+width:90%;
+max-width:900px;
+margin:40px auto;
+}
+
+.card{
+background:#111827;
+padding:25px;
+border-radius:20px;
+margin-bottom:25px;
+border:1px solid rgba(255,255,255,.08);
+}
+
+.card h2{
+margin-bottom:20px;
+}
+
+.setting{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px 0;
+border-bottom:1px solid rgba(255,255,255,.06);
+}
+
+.setting:last-child{
+border:none;
+}
+
+select,input{
+padding:12px;
+background:#1f2937;
+border:none;
+border-radius:10px;
+color:white;
+outline:none;
+}
+
+.switch{
+width:55px;
+height:28px;
+background:#2563eb;
+border-radius:30px;
+cursor:pointer;
+position:relative;
+}
+
+.switch::after{
+content:'';
+position:absolute;
+width:22px;
+height:22px;
+background:white;
+border-radius:50%;
+top:3px;
+left:30px;
+transition:.3s;
+}
+
+button{
+padding:15px 30px;
+background:#2563eb;
+color:white;
+border:none;
+border-radius:12px;
+cursor:pointer;
+font-size:16px;
+}
+
+button:hover{
+background:#1d4ed8;
+}
+
+.danger{
+background:#dc2626;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<div class="logo">
+
+⚙️ SearchHub Settings
+
+</div>
+
+<a href="dashboard.html" style="color:white;text-decoration:none;">
+
+Dashboard
+
+</a>
+
+</header>
+
+<div class="container">
+
+<div class="card">
+
+<h2>Appearance</h2>
+
+<div class="setting">
+
+<span>Theme</span>
+
+<select id="theme">
+
+<option>Dark</option>
+
+<option>Light</option>
+
+</select>
+
+</div>
+
+<div class="setting">
+
+<span>Language</span>
+
+<select>
+
+<option>English</option>
+
+<option>Tamil</option>
+
+<option>Hindi</option>
+
+</select>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<h2>Notifications</h2>
+
+<div class="setting">
+
+<span>Email Notifications</span>
+
+<div class="switch"></div>
+
+</div>
+
+<div class="setting">
+
+<span>Search Alerts</span>
+
+<div class="switch"></div>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<h2>Privacy</h2>
+
+<div class="setting">
+
+<span>Save Search History</span>
+
+<div class="switch"></div>
+
+</div>
+
+<div class="setting">
+
+<span>Personalized Results</span>
+
+<div class="switch"></div>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<h2>Account</h2>
+
+<div class="setting">
+
+<span>Export My Data</span>
+
+<button onclick="exportData()">
+
+Export
+
+</button>
+
+</div>
+
+<div class="setting">
+
+<span>Delete Account</span>
+
+<button class="danger" onclick="deleteAccount()">
+
+Delete
+
+</button>
+
+</div>
+
+</div>
+
+<button onclick="saveSettings()">
+
+Save Settings
+
+</button>
+
+</div>
+
+<script>
+
+function saveSettings(){
+
+let theme=document.getElementById("theme").value;
+
+localStorage.setItem("themeMode",theme);
+
+alert("Settings Saved Successfully");
+
+}
+
+function exportData(){
+
+let data={
+
+user:localStorage.getItem("user"),
+
+history:localStorage.getItem("history"),
+
+library:localStorage.getItem("library")
+
+};
+
+let blob=new Blob([JSON.stringify(data,null,2)],
+
+{type:"application/json"});
+
+let a=document.createElement("a");
+
+a.href=URL.createObjectURL(blob);
+
+a.download="searchhub-data.json";
+
+a.click();
+
+}
+
+function deleteAccount(){
+
+if(confirm("Delete Account?")){
+
+localStorage.clear();
+
+alert("Account Deleted");
+
+window.location="login.html";
+
+}
+
+}
+
+</script>
+
+</body>
+</html>
