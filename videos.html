@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+<title>Video Search | SearchHub AI</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Inter,sans-serif;
+}
+
+body{
+background:#0b1120;
+color:#fff;
+}
+
+header{
+
+display:flex;
+justify-content:space-between;
+align-items:center;
+
+padding:20px 40px;
+
+background:#111827;
+
+}
+
+.logo{
+
+font-size:28px;
+font-weight:700;
+
+}
+
+.search{
+
+display:flex;
+gap:10px;
+width:60%;
+
+}
+
+.search input{
+
+flex:1;
+padding:15px;
+
+background:#1f2937;
+
+border:none;
+outline:none;
+
+border-radius:12px;
+
+color:white;
+
+font-size:16px;
+
+}
+
+.search button{
+
+padding:15px 25px;
+
+background:#2563eb;
+
+border:none;
+
+border-radius:12px;
+
+color:white;
+
+cursor:pointer;
+
+}
+
+.container{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(350px,1fr));
+
+gap:25px;
+
+padding:40px;
+
+}
+
+.video{
+
+background:#111827;
+
+border-radius:18px;
+
+overflow:hidden;
+
+transition:.3s;
+
+}
+
+.video:hover{
+
+transform:translateY(-8px);
+
+}
+
+.video iframe{
+
+width:100%;
+
+height:220px;
+
+border:none;
+
+}
+
+.video h3{
+
+padding:15px;
+
+font-size:20px;
+
+}
+
+.video p{
+
+padding:0 15px 20px;
+
+color:#94a3b8;
+
+}
+
+footer{
+
+text-align:center;
+
+padding:30px;
+
+color:#94a3b8;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<div class="logo">
+
+🎥 SearchHub AI
+
+</div>
+
+<div class="search">
+
+<input
+type="text"
+id="videoInput"
+placeholder="Search Videos...">
+
+<button onclick="searchVideo()">
+
+Search
+
+</button>
+
+</div>
+
+</header>
+
+<div class="container">
+
+<div class="video">
+
+<iframe
+src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+allowfullscreen>
+</iframe>
+
+<h3>HTML Full Course</h3>
+
+<p>Learn HTML from Beginner to Advanced.</p>
+
+</div>
+
+<div class="video">
+
+<iframe
+src="https://www.youtube.com/embed/PkZNo7MFNFg"
+allowfullscreen>
+</iframe>
+
+<h3>JavaScript Tutorial</h3>
+
+<p>Complete JavaScript Course.</p>
+
+</div>
+
+<div class="video">
+
+<iframe
+src="https://www.youtube.com/embed/_uQrJ0TkZlc"
+allowfullscreen>
+</iframe>
+
+<h3>Python Programming</h3>
+
+<p>Python for Beginners.</p>
+
+</div>
+
+<div class="video">
+
+<iframe
+src="https://www.youtube.com/embed/Ke90Tje7VS0"
+allowfullscreen>
+</iframe>
+
+<h3>React JS Course</h3>
+
+<p>React Complete Tutorial.</p>
+
+</div>
+
+</div>
+
+<footer>
+
+©2026 SearchHub AI
+
+</footer>
+
+<script>
+
+function searchVideo(){
+
+let q=document.getElementById("videoInput").value.trim();
+
+if(q===""){
+
+alert("Please enter a video name.");
+
+return;
+
+}
+
+window.open(
+
+"https://www.youtube.com/results?search_query="+
+encodeURIComponent(q),
+
+"_blank"
+
+);
+
+}
+
+</script>
+
+</body>
+
+</html>
